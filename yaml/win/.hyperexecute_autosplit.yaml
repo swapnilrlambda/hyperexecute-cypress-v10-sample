@@ -1,0 +1,24 @@
+---
+version: 0.1
+globalTimeout: 90
+testSuiteTimeout: 90
+testSuiteStep: 90
+retryOnFailure: true
+runson: win
+cypress: true
+maxRetries: 1
+concurrency: 1
+autosplit: true
+pre:
+  - npm install
+testDiscovery:
+  mode: static
+  type: raw
+  command: ls cypress/e2e/2-advanced-examples | sed -n 1,'1p'
+testRunnerCommand: npx cypress run  --spec ./cypress/e2e/2-advanced-examples/$test --browser=chrome-95.0 --headed --config video=false
+cypressOps:
+ Build: "Hyperexecute Cypress Sample Build"
+ Tags: ["Hyperexecute","Cypress", "Windows", "Autosplit"]
+ BuildTags: ["Hyperexecute-Cypress"]
+post:
+  - cat yaml/win/.hyperexecute_autosplit.yaml
