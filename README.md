@@ -127,6 +127,20 @@ maxRetries: 1
 concurrency: 1
 ```
 
+Cypress is set to true in the YML file.
+
+```yaml
+cypress: true
+```
+Cypress Build name and tags are added in the YML file.
+
+```yaml
+cypressOps:
+ Build: "Hyperexecute Cypress Sample Build"
+ Tags: ["Hyperexecute","Cypress", "Windows", "Autosplit"]
+ BuildTags: ["Hyperexecute-Cypress"]
+```
+
 ### Pre Steps
 
 Steps (or commands) that must run before the test execution are listed in the *pre* run step.
@@ -237,6 +251,19 @@ testSuites:
   - npx cypress run  --spec ./cypress/e2e/2-advanced-examples/$files --browser=$browser --headed --config video=false
 ```
 
+Cypress is set to true in the YML file.
+
+```yaml
+cypress: true
+```
+Cypress Build name and tags are added in the YML file.
+
+```yaml
+cypressOps:
+ Build: "Hyperexecute Cypress Sample Build"
+ Tags: ["Hyperexecute","Cypress", "Windows", "Matrix"]
+ BuildTags: ["Hyperexecute-Cypress"]
+```
 ### Pre Steps
 
 Steps (or commands) that must run before the test execution are listed in the *pre* run step.

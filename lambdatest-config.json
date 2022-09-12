@@ -27,7 +27,6 @@
       "specs": "cypress/e2e/2-advanced-examples/actions0.cy.js",
       "ignore_files": "",
       "network": true,
-      "fixed_ip": "10.243.32.18",
       "headless": false,
       "npm_dependencies": {
          "cypress": "10.7.0"
