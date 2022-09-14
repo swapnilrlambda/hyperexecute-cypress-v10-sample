@@ -14,7 +14,7 @@ pre:
 testDiscovery:
   mode: static
   type: raw
-  command: ls cypress/e2e/2-advanced-examples | sed -n 1,'1p'
+  command: ls cypress/e2e/2-advanced-examples
 testRunnerCommand: npx cypress run  --spec ./cypress/e2e/2-advanced-examples/$test --browser=chrome-95.0 --headed --config video=false
 cypressOps:
  Build: "Hyperexecute Cypress Sample Build"
