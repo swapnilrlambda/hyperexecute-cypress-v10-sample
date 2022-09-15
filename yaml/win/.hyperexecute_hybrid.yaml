@@ -6,12 +6,13 @@ testSuiteStep: 90
 retryOnFailure: false
 runson: ${matrix.os}
 cypress: true
-maxRetries: 0
+maxRetries: 1
 parallelism: 1
-concurrency: 30
+concurrency: 2
 autosplit: true
 pre:
   - npm install
+  - npm install cypress --save-dev
 cacheKey: '{{ checksum "package.json" }}'
 cacheDirectories:
   - node_modules

@@ -7,10 +7,11 @@ retryOnFailure: true
 runson: mac
 cypress: true
 maxRetries: 1
-concurrency: 1
+concurrency: 2
 autosplit: true
 pre:
   - npm install
+  - npm install cypress --save-dev
 cacheKey: '{{ checksum "package.json" }}'
 cacheDirectories:
   - node_modules
@@ -24,4 +25,4 @@ cypressOps:
  Tags: ["Hyperexecute","Cypress", "Windows", "Autosplit"]
  BuildTags: ["Hyperexecute-Cypress"]
 post:
-  - cat yaml/mac/.hyperexecute_autosplit.yaml
+  - cat yaml/mac/.hyperexecute_matrix.yaml

@@ -8,9 +8,10 @@ runson: ${matrix.os}
 cypress: true
 maxRetries: 2
 parallelism: 1
-concurrency: 30
+concurrency: 2
 pre:
   - npm install
+  - npm install cypress --save-dev
 cacheKey: '{{ checksum "package.json" }}'
 cacheDirectories:
   - node_modules
@@ -25,4 +26,4 @@ cypressOps:
  Tags: ["Hyperexecute","Cypress", "Windows", "Matrix"]
  BuildTags: ["Hyperexecute-Cypress"]
 post:
-  - cat yaml/win/.hyperexecute_matrix.yaml
+  - cat yaml/win/.hyperexecute_autoaplit.yaml
