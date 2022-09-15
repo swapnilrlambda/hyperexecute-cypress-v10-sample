@@ -12,11 +12,9 @@ concurrency: 30
 autosplit: true
 pre:
   - npm install
-
-# cacheKey: '{{ checksum "package-lock.json" }}'
-# cacheDirectories:
-#   - node_modules
-
+cacheKey: '{{ checksum "package.json" }}'
+cacheDirectories:
+  - node_modules
 matrix:
    os: [win]
    browser: ["chrome-95.0","chrome-96.0","chrome-97.0","chrome-98.0","chrome-99.0","chrome-100.0","chrome-101.0","chrome-102.0","chrome-103.0","chrome-104.0","chrome-105.0"]

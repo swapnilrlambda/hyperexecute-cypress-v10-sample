@@ -11,6 +11,9 @@ concurrency: 1
 autosplit: true
 pre:
   - npm install
+cacheKey: '{{ checksum "package.json" }}'
+cacheDirectories:
+  - node_modules
 testDiscovery:
   mode: static
   type: raw
