@@ -17,7 +17,6 @@
     "@reportportal/agent-js-cypress": "^5.0.4",
     "cypress": "10.7.0",
     "reportportal-js-client": "^2.2.1",
-    "@lambdatest/frontend-logger": "1.2.6",
     "mochawesome": "^6.1.1",
     "cypress-multi-reporters": ""
   }
