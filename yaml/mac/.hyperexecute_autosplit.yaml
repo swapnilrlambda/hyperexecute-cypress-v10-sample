@@ -22,7 +22,7 @@ testDiscovery:
 testRunnerCommand: npx cypress run  --spec ./cypress/e2e/2-advanced-examples/$test --browser=chrome-95.0 --headed --config video=false
 cypressOps:
  Build: "Hyperexecute Cypress Sample Build"
- Tags: ["Hyperexecute","Cypress", "Windows", "Autosplit"]
+ Tags: ["Hyperexecute","Cypress", "MacOS", "Autosplit"]
  BuildTags: ["Hyperexecute-Cypress"]
 post:
   - cat yaml/mac/.hyperexecute_matrix.yaml
