@@ -15,6 +15,9 @@ pre:
 cacheKey: '{{ checksum "package.json" }}'
 cacheDirectories:
   - node_modules
+  - cypressCache
+env:
+  CYPRESS_CACHE_FOLDER: cypressCache
 testDiscovery:
   mode: static
   type: raw
