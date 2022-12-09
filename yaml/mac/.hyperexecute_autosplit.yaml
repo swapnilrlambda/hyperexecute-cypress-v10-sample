@@ -25,4 +25,4 @@ cypressOps:
  Tags: ["Hyperexecute","Cypress", "MacOS", "Autosplit"]
  BuildTags: ["Hyperexecute-Cypress"]
 post:
-  - cat yaml/mac/.hyperexecute_matrix.yaml
+  - cat yaml/mac/.hyperexecute_autosplit.yaml
