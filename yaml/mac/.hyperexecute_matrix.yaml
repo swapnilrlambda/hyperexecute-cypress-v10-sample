@@ -17,7 +17,7 @@ cacheDirectories:
   - node_modules
 matrix:
    os: [mac]
-   browser: ["chrome-95.0","chrome-96.0","chrome-97.0","chrome-98.0","chrome-99.0","chrome-100.0","chrome-101.0","chrome-102.0","chrome-103.0","chrome-104.0","chrome-105.0"]
+   browser: ["chrome-103.0","chrome-104.0","chrome-105.0"]
    files: ["actions.cy.js"]
 testSuites: 
   - npx cypress run  --spec ./cypress/e2e/2-advanced-examples/$files --browser=$browser --headed --config video=false
@@ -26,4 +26,4 @@ cypressOps:
  Tags: ["Hyperexecute","Cypress", "Windows", "Matrix"]
  BuildTags: ["Hyperexecute-Cypress"]
 post:
-  - cat yaml/win/.hyperexecute_autoaplit.yaml
+  - cat yaml/mac/.hyperexecute_matrix.yaml
