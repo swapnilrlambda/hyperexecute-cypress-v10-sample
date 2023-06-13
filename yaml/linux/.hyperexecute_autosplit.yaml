@@ -12,6 +12,8 @@ autosplit: true
 pre:
   - npm install
   - npm install cypress --save-dev
+  - echo ${storeId}
+  - echo ${storeType}
 cacheKey: '{{ checksum "package.json" }}'
 cacheDirectories:
   - node_modules
