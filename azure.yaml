@@ -69,9 +69,9 @@ jobs:
       - name: grepTags
         value: -NonUS
 
-    steps:
-      - script: |
-          echo "Selected browser= ${BROWSER}"
-          curl -O https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute
-          chmod u+x hyperexecute
-          ./hyperexecute -u $(LT_USERNAME) -k $(LT_ACCESS_KEY) -i yaml/linux/nightwatch_hyperexecute_matrix_sample.yaml --vars "browser=$(BROWSER)" --vars "configFile=$(locale)" --vars "grep=$(grep)" --vars "grepTags=$(grepTags)" --vars "storeType=$(STORETYPE)" --vars "storeId=$(STOREID)"
+steps:
+  - script: |
+      echo "Selected browser= ${BROWSER}"
+      curl -O https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute
+      chmod u+x hyperexecute
+      ./hyperexecute -u $(LT_USERNAME) -k $(LT_ACCESS_KEY) -i yaml/linux/nightwatch_hyperexecute_matrix_sample.yaml --vars "browser=$(BROWSER)" --vars "configFile=$(locale)" --vars "grep=$(grep)" --vars "grepTags=$(grepTags)" --vars "storeType=$(STORETYPE)" --vars "storeId=$(STOREID)"
