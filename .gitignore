@@ -1,0 +1,5 @@
+logs/
+.updatedhyperexecute.yaml
+*.exe
+*.log
+result.json

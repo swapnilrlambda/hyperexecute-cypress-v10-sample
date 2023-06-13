@@ -1,0 +1,77 @@
+trigger:
+  branches:
+    include:
+      - main
+
+parameters:
+  - name: browser
+    displayName: Browser selection
+    type: string
+    default: 'chrome'
+    values:
+      - chrome
+      - firefox
+      - edge
+
+  - name: region
+    type: string
+    displayName: "Region_Langugage"
+    default: "US_English"
+    values:
+      - "US_English"
+      - "US_Spanish"
+      - "CA_English"
+      - "CA_French"
+      - "MX_Spanish"
+
+  - name: storeType
+    type: string
+    displayName: "Store"
+    default: "Core"
+    values:
+      - "Core"
+      - "Cloud"
+
+  - name: storeId
+    displayName: "Select storeId - For Cloud Store Only"
+    default: Ignore For Default Store 99990402
+    values:
+      - Ignore For Default Store 99990402
+      - 99990400
+      - 99990402
+      - 99990403
+      - 99990404
+      - 99990415
+      - 99990700
+      - 99990701
+
+jobs:
+  - job: Test
+    displayName: Run Tests
+    pool:
+      vmImage: 'ubuntu-latest'
+
+    variables:
+      - name: BROWSER
+        value: ${{ parameters.browser }}
+      - name: STOREID
+        value: ${{ parameters.storeId }}      
+      - name: STORETYPE
+        value: ${{ parameters.storeType }}      
+      - name: LT_USERNAME
+        value: swapnilr
+      - name: LT_ACCESS_KEY
+        value: dhaSkMbveBHarx1CYczgPiYQwAaiE1fQTc2Td64LAxO4nQ4l5d
+      - name: grep
+        value:
+      - name: locale
+        value: en-us
+      - name: grepTags
+        value: -NonUS
+
+    steps:
+      - script: |
+          echo "Selected browser= ${BROWSER}"
+          curl -O https://downloads.lambdatest.com/hyperexecute/linux/hyperexecute
+          chmod u+x hyperexecute
+          ./hyperexecute -u $(LT_USERNAME) -k $(LT_ACCESS_KEY) -i yaml/linux/nightwatch_hyperexecute_matrix_sample.yaml --vars "browser=$(BROWSER)" --vars "configFile=$(locale)" --vars "grep=$(grep)" --vars "grepTags=$(grepTags)" --vars "storeType=$(STORETYPE)" --vars "storeId=$(STOREID)"

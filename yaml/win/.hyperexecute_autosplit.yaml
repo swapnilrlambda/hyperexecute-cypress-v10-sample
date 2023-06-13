@@ -10,6 +10,7 @@ maxRetries: 1
 concurrency: 2
 autosplit: true
 pre:
+  - echo ${configFile}
   - npm install
   - npm install cypress --save-dev
 cacheKey: '{{ checksum "package.json" }}'
@@ -19,10 +20,10 @@ cacheDirectories:
 env:
   CYPRESS_CACHE_FOLDER: cypressCache
 testDiscovery:
-  mode: static
+  mode: dynamic
   type: raw
   command: ls cypress/e2e/2-advanced-examples
-testRunnerCommand: npx cypress run  --spec ./cypress/e2e/2-advanced-examples/$test --browser=chrome-95.0 --headed --config video=false
+testRunnerCommand: npx cypress run  --spec ./cypress/e2e/2-advanced-examples/$test --browser=chrome-95.0 --env configFile=${configFile},grep=${grep},grepTags=${grepTags},storeType=${storeType},storeId=${storeId} --headed --config video=false
 cypressOps:
  Build: "Hyperexecute Cypress Sample Build"
  Tags: ["Hyperexecute","Cypress", "Windows", "Autosplit"]
